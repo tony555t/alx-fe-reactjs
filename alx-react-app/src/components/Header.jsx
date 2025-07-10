@@ -1,10 +1,9 @@
-function FavoriteCity() {
+function Header() {
     return (
-        <div>
-            <h1>Monaco</h1>
-           
-        </div>
+        <header>
+            <h1>My Favorite Cities</h1>
+        </header>
     );
 }
 
-export default FavoriteCity;
+export default Header;
