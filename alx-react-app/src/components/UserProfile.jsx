@@ -1,8 +1,9 @@
-const UserProfile = ({name, Age ,bio})=>{
+const UserProfile = ({name, age ,bio})=>{
+    
     return(
         <div>
             <h2>{name}</h2>
-            <p>Age:{Age}</p>
+            <p>Age:{age}</p>
             <p>Bio:{bio}</p>
         </div>
     );
