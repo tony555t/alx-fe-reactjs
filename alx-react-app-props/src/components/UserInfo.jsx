@@ -4,7 +4,7 @@ function UserInfo({ userData }) {
     return (
         <div>
             <h1>UserInformation</h1>
-            <ProfilePage />
+            <UserDetails/>
         </div>
     )
 }
