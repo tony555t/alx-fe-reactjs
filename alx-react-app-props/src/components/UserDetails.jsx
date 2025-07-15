@@ -16,6 +16,8 @@ const userData = useContext=(UserContext);
         <h3>user Details</h3>
         <p><strong>Name:</strong> {userData.name}</p>
         <p><strong>Email:</strong> {userData.email}</p>
+        <p><strong>Job:</strong>{userData.job}</p>
+        <p><strong>Branch</strong>{userData.branch}</p>
 
      
       </div>
