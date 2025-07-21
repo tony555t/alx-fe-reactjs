@@ -3,7 +3,7 @@ import { BrowserRouter as  Router,Routes ,Route} from "react-router-dom";
 
 import UserContext from './components/UserContext';
 import ProfilePage from './components/ProfilePage';
-
+import Navbar from './components/Navbar';
 import Home from '../../my-company/Home';
 import About from '../../my-company/About';
 import Service from '../../my-company/Services';
