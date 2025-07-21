@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Service  = () => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome !</p>
-    </div>
-  );
-};
+function Services() {
+    return (
+      <div style={{ padding: '20px' }}>
+        <h1>Our Services</h1>
+        <ul>
+          <li>Technology Consulting</li>
+          <li>Market Analysis</li>
+          <li>Product Development</li>
+        </ul>
+      </div>
+    );
+  }
 
-export default Service;
+  export default Services;
