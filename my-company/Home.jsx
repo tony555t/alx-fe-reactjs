@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Home = () => {
+function Home () {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to our homepage!</p>
+    <div style={{padding:"20px"}} >
+             <h1>Welcome to Our Company</h1>
+             <p>We are dedicated to delivering excellence in all our services.</p>
     </div>
   );
 };
