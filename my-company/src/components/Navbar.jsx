@@ -5,7 +5,7 @@ function Navbar() {
     <nav
       style={{
         padding: "10px",
-        backgroundColor: "#f0f0f0", // ✅ Corrected this line
+        backgroundColor: "#f0f0f0", 
         display: "flex",
         justifyContent: "center",
         gap: "20px"
