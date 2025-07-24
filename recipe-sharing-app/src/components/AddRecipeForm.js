@@ -1,35 +1,76 @@
-import React, { useState } from 'react';
-import { useRecipeStore } from '../store/RecipeStore';
+import { useState } from 'react';
+import { useRecipeStore } from './store/recipeStore';
 
 const AddRecipeForm = () => {
-  const addRecipe = useRecipeStore((state) => state.addRecipe);
+  const addRecipe = useRecipeStore(state => state.addRecipe);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!title.trim()) return;
-    addRecipe({ id: Date.now(), title, description });
-    setTitle('');
-    setDescription('');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (title.trim() && description.trim()) {
+      addRecipe({ 
+        id: Date.now(), 
+        title: title.trim(), 
+        description: description.trim() 
+      });
+      setTitle('');
+      setDescription('');
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-        required
-      />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
-      />
-      <button type="submit">Add Recipe</button>
-    </form>
+    <div style={{ marginBottom: '20px' }}>
+      <h2>Add New Recipe</h2>
+      <form onSubmit={handleSubmit} style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        maxWidth: '400px',
+        gap: '10px'
+      }}>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Recipe Title"
+          required
+          style={{
+            padding: '8px',
+            fontSize: '16px',
+            border: '1px solid #ccc',
+            borderRadius: '4px'
+          }}
+        />
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Recipe Description"
+          required
+          rows="4"
+          style={{
+            padding: '8px',
+            fontSize: '16px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+            resize: 'vertical'
+          }}
+        />
+        <button 
+          type="submit"
+          style={{
+            padding: '10px',
+            fontSize: '16px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Add Recipe
+        </button>
+      </form>
+    </div>
   );
 };
 

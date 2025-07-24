@@ -1,17 +1,11 @@
-import create from 'zustand'; 
+import { create } from 'zustand';
 
-const useRecipeStore = create ((set)=>({
-    //initial state
-    recipe:[],
+const useRecipeStore = create((set) => ({
+  recipes: [],
+  addRecipe: (newRecipe) => set((state) => ({ 
+    recipes: [...state.recipes, newRecipe] 
+  })),
+  setRecipes: (recipes) => set({ recipes })
+}));
 
-    //action : add new recipe 
-    addRecipe:(newRecipe )=>
-        set((state)=>({
-            recipe:[...state.recipes,newRecipe],
-        })),
-
-    // set all recipe 
-    setRecipes:(recipe)=>set({recipes}),
-}))
-
-export default useRecipeStore;
+export { useRecipeStore };
