@@ -1,3 +1,6 @@
+
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+
 import React from 'react';
 import AddRecipeForm from './components/AddRecipeForm.JSX';
 import RecipeList from './components/RecipeList';
@@ -5,6 +8,7 @@ import './App.css';
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <header style={{ 
         textAlign: 'center', 
@@ -22,11 +26,18 @@ function App() {
         margin: '0 auto', 
         padding: '0 20px' 
       }}>
-        
-        <AddRecipeForm />
-        <RecipeList />
-      </main>
-    </div>
+             <Routes>
+            <Route path="/" element={
+              <>
+                <AddRecipeForm />
+                <RecipeList />
+              </>
+            } />
+            <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
