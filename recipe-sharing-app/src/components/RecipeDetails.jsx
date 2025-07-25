@@ -1,48 +1,45 @@
-import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
-import RecipeDetails from './components/RecipeDetails';
-import './App.css';
+import { useRecipeStore } from './recipeStore';
+import EditRecipeForm from './EditRecipeForm';
+import DeleteRecipeButton from './DeleteRecipeButton';
 
-// Wrapper component to extract params and pass as props
-const RecipeDetailsWrapper = () => {
-  const { id } = useParams();
-  return <RecipeDetails recipeId={parseInt(id)} />;
+const RecipeDetails = ({ recipeId }) => {
+  const recipe = useRecipeStore(state =>
+    state.recipes.find(recipe => recipe.id === recipeId)
+  );
+
+  if (!recipe) {
+    return (
+      <div>
+        <h2>Recipe Not Found</h2>
+        <p>The recipe with ID {recipeId} could not be found.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+      <div style={{
+        border: '1px solid #ddd',
+        borderRadius: '8px',
+        padding: '20px',
+        backgroundColor: '#f8f9fa'
+      }}>
+        <h1 style={{ marginBottom: '15px', color: '#333' }}>{recipe.title}</h1>
+        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>
+          {recipe.description}
+        </p>
+        <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>
+          Recipe ID: {recipe.id}
+        </p>
+        
+        {/* Render EditRecipeForm and DeleteRecipeButton here */}
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <EditRecipeForm recipe={recipe} />
+          <DeleteRecipeButton recipeId={recipe.id} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <header style={{ 
-          textAlign: 'center', 
-          marginBottom: '30px',
-          padding: '20px',
-          backgroundColor: '#f8f9fa',
-          borderRadius: '8px'
-        }}>
-          <h1>Recipe Sharing Application</h1>
-          <p>Share and discover amazing recipes!</p>
-        </header>
-        
-        <main style={{ 
-          maxWidth: '800px', 
-          margin: '0 auto', 
-          padding: '0 20px' 
-        }}>
-          <Routes>
-            <Route path="/" element={
-              <>
-                <AddRecipeForm />
-                <RecipeList />
-              </>
-            } />
-            <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+export default RecipeDetails;
