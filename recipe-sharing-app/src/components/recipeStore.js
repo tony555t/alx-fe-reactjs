@@ -84,13 +84,13 @@ export const useRecipeStore = create((set) => ({
     const recipeWords = [...recipe.title.toLowerCase().split(' '), 
                         ...recipe.description.toLowerCase().split(' ')];
     
-    // Check if recipe has common keywords with favorites
+    // Check if recipe keywords with favorites
     const hasCommonKeywords = favoriteKeywords.some(keyword => 
       recipeWords.some(word => word.includes(keyword) || keyword.includes(word))
     );
     
-    return hasCommonKeywords || Math.random() > 0.7; // Include some random suggestions
-  }).slice(0, 5); // Limit to 5 recommendations
+    return hasCommonKeywords || Math.random() > 0.7; 
+  }).slice(0, 5); 
   
   return { recommendations: recommended };
 }),
