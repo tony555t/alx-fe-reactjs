@@ -5,6 +5,8 @@ export const useRecipeStore = create((set) => ({
   searchTerm: '',
   setSearchTerm: (term) => set({ searchTerm: term }),
   filteredRecipes: [],
+  favorites: [],
+  recommendation : [],
 
   addRecipe: (newRecipe) => set((state) => ({ 
     recipes: [...state.recipes, newRecipe] 
@@ -48,5 +50,48 @@ export const useRecipeStore = create((set) => ({
       recipes: updatedRecipes,
       filteredRecipes: updatedFilteredRecipes
     };
-  })
+
+  
+  }),
+
+ addFavourite:(recipeId) => set ((state)=>({
+  favourites: [...state.favourites,recipeId]
+ })),
+
+
+
+ removeFavourite:(recipeId) => set ((state)=>({
+  favorites: state.favorites.filter(id => id !== recipeId)
+
+ })),
+
+ 
+ generateRecommendations: () => set((state) => {
+  // Enhanced recommendation 
+  const favoriteRecipes = state.recipes.filter(recipe => 
+    state.favorites.includes(recipe.id)
+  );
+  
+  // Get keywords from favorite recipes' titles and descriptions
+  const favoriteKeywords = favoriteRecipes.flatMap(recipe => 
+    [...recipe.title.toLowerCase().split(' '), ...recipe.description.toLowerCase().split(' ')]
+  ).filter(word => word.length > 3); // Filter out short words
+  
+  // Find recipes that contain similar keywords but aren't already favorites
+  const recommended = state.recipes.filter(recipe => {
+    if (state.favorites.includes(recipe.id)) return false; // Don't recommend favorites
+    
+    const recipeWords = [...recipe.title.toLowerCase().split(' '), 
+                        ...recipe.description.toLowerCase().split(' ')];
+    
+    // Check if recipe has common keywords with favorites
+    const hasCommonKeywords = favoriteKeywords.some(keyword => 
+      recipeWords.some(word => word.includes(keyword) || keyword.includes(word))
+    );
+    
+    return hasCommonKeywords || Math.random() > 0.7; // Include some random suggestions
+  }).slice(0, 5); // Limit to 5 recommendations
+  
+  return { recommendations: recommended };
+}),
 }));
