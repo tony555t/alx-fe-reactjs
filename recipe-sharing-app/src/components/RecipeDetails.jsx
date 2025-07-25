@@ -1,19 +1,22 @@
-import  {useRecipeStore } from '../recipeStore'
-import DeleteRecipeButton from './DeleteRecipeButton';
+import { useRecipeStore } from "../recipeStore";
+ 
 
-const DeleteRecipeButton =({ recepeId})=>{
-    const deleteRecipe = useRecipeStore(state => state.deleteRecipe);
 
-    const handleDelete=()=>{}
-        if (window.confirm('Are you sureyou wnt to delete this recipe?')){
-            deleteRecipe(recepeId);
-        }
+const DeleteRecipeButton =({recipeId})=>{
+    const  deleteRecipe = useRecipeStore(state=> state.deleteRecipe;
     
-};
-return(
-    <button onClick={handleDelete} style ={{backgroundColor:'red',color:'white'}}>
-        delete recipe
-    </button>
-)
+    const handleDelete=()=>{
+        if (Window.comfirm('are you sure ')){
+            deleteRecipe{recipeId}
+        }
+    };
+    return(
+        <button onClick={handleDelete}style={{
+            backgroundColor:'red',
+            color:'white'
+        }}>
+            delete recipe
 
-export default DeleteRecipeButton
+        </button>
+    )
+}
