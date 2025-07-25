@@ -1,8 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
 import RecipeDetails from './components/RecipeDetails';
 import './App.css';
+
+// Wrapper component to extract params and pass as props
+const RecipeDetailsWrapper = () => {
+  const { id } = useParams();
+  return <RecipeDetails recipeId={parseInt(id)} />;
+};
 
 function App() {
   return (
@@ -31,7 +37,7 @@ function App() {
                 <RecipeList />
               </>
             } />
-            <Route path="/recipe/:id" element={<RecipeDetails />} />
+            <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
           </Routes>
         </main>
       </div>
