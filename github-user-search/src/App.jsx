@@ -1,10 +1,9 @@
- import Search from "./components/Search";
-
+import Search from './components/Search';
 
 function App() {
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>GitHub User Search</h1>
+      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>GitHub User Search</h1>
       <Search />
     </div>
   );
