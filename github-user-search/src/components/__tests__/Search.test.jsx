@@ -97,7 +97,7 @@ describe('Search component', () => {
 
     await waitFor(() => {
       expect(screen.queryByText('The Octocat')).not.toBeInTheDocument();
-      expect(screen.getByText(/looks like we can't find the user/i)).toBeInTheDocument();
+      expect(screen.getByText(/looks like we cant find the user/i)).toBeInTheDocument();
     });
   });
 });
