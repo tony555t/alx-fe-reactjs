@@ -80,6 +80,7 @@ const Search = () => {
           </ul>
         )}
       </div>
+      
     </div>
   );
 };
