@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { fetchUsersByCriteria } from "../services/githubService";
 
+
+const fetchUserData = () => {};
+
 const Search = () => {
   const [username, setUsername] = useState('');
   const [location, setLocation] = useState('');
