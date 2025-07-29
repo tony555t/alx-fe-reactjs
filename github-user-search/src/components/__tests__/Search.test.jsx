@@ -51,7 +51,7 @@ describe('Search component', () => {
 
     await waitFor(() => {
       expect(githubService.fetchUserData).toHaveBeenCalledWith('nonexistentuser');
-      expect(screen.getByText(/looks like we can't find the user/i)).toBeInTheDocument();
+      expect(screen.getByText("Looks like we can't find the user")).toBeInTheDocument();
     });
   });
 
