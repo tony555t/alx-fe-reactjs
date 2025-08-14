@@ -1,28 +1,37 @@
-// src/components/HomePage.jsx
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import recipesData from "../data.json";
 
 export default function HomePage() {
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    // Simulating data fetch
+    setRecipes(recipesData);
+  }, []);
+
   return (
-    <div className="p-6 md:p-10">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Recipe Sharing</h1>
-      <p className="mb-6">Discover, share, and create amazing recipes!</p>
-
-      <div className="flex gap-4">
-        {/* Link to Add Recipe page */}
-        <Link
-          to="/add"
-          className="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600"
-        >
-          Add Recipe
-        </Link>
-
-        {/* Example: Link to a sample recipe detail page */}
-        <Link
-          to="/recipe/1"
-          className="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600"
-        >
-          View Sample Recipe
-        </Link>
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center">Recipe Sharing Platform</h1>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {recipes.map((recipe) => (
+          <div
+            key={recipe.id}
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:scale-105 transition"
+          >
+            <img src={recipe.image} alt={recipe.title} className="w-full h-48 object-cover" />
+            <div className="p-4">
+              <h2 className="text-xl font-semibold">{recipe.title}</h2>
+              <p className="text-gray-600 mt-2">{recipe.summary}</p>
+              <Link
+                to={`/recipe/${recipe.id}`}
+                className="inline-block mt-4 text-blue-500 hover:underline"
+              >
+                View Recipe →
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

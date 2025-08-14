@@ -30,8 +30,7 @@ export default function AddRecipeForm() {
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Add a New Recipe</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        
-        {/* Title */}
+
         <div>
           <label className="block font-medium mb-1">Recipe Title</label>
           <input
@@ -43,7 +42,6 @@ export default function AddRecipeForm() {
           {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
         </div>
 
-        {/* Ingredients */}
         <div>
           <label className="block font-medium mb-1">Ingredients</label>
           <textarea
@@ -56,7 +54,6 @@ export default function AddRecipeForm() {
           )}
         </div>
 
-        {/* Steps */}
         <div>
           <label className="block font-medium mb-1">Steps</label>
           <textarea
