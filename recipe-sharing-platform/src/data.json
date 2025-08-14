@@ -3,12 +3,62 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Spaghetti+Carbonara",
+    "ingredients": [
+      "400g spaghetti pasta",
+      "200g pancetta or bacon, diced",
+      "4 large eggs",
+      "100g freshly grated Pecorino Romano cheese",
+      "2 cloves garlic, minced",
+      "Freshly ground black pepper",
+      "Salt to taste",
+      "2 tablespoons olive oil"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions until al dente.",
+      "While pasta cooks, heat olive oil in a large skillet over medium heat.",
+      "Add pancetta and cook until crispy, about 5-7 minutes.",
+      "Add minced garlic and cook for another minute until fragrant.",
+      "In a bowl, whisk together eggs, grated cheese, and a generous amount of black pepper.",
+      "When pasta is done, reserve 1 cup of pasta water and drain the rest.",
+      "Add hot pasta to the skillet with pancetta and toss to combine.",
+      "Remove from heat and quickly pour in the egg mixture, tossing rapidly to create a creamy sauce.",
+      "Add pasta water gradually if needed to achieve desired consistency.",
+      "Serve immediately with extra cheese and black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/400x300/FF8E53/FFFFFF?text=Chicken+Tikka+Masala",
+    "ingredients": [
+      "500g boneless chicken, cut into chunks",
+      "1 cup plain yogurt",
+      "2 tablespoons lemon juice",
+      "2 teaspoons garam masala",
+      "1 teaspoon cumin powder",
+      "1 teaspoon coriander powder",
+      "1 large onion, finely chopped",
+      "4 cloves garlic, minced",
+      "1 inch ginger, grated",
+      "400g canned tomatoes",
+      "200ml heavy cream",
+      "2 tablespoons vegetable oil",
+      "Salt to taste",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Marinate chicken chunks in yogurt, lemon juice, and half the spices for at least 2 hours.",
+      "Heat oil in a large pan over medium-high heat.",
+      "Cook marinated chicken until browned and cooked through, about 8-10 minutes. Set aside.",
+      "In the same pan, sauté onions until golden brown, about 5 minutes.",
+      "Add garlic and ginger, cook for another minute until fragrant.",
+      "Add remaining garam masala, cumin, and coriander. Cook for 30 seconds.",
+      "Add canned tomatoes and simmer for 10 minutes until sauce thickens.",
+      "Stir in heavy cream and season with salt.",
+      "Return chicken to the pan and simmer for 5 minutes.",
+      "Garnish with fresh cilantro and serve with rice or naan."
+    ]
   }
 ]
