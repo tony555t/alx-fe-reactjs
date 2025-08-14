@@ -3,13 +3,13 @@ import { useState } from "react";
 export default function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!title || !ingredients || !instructions) {
+    if (!title || !ingredients || !steps) {
       setError("Please fill in all fields.");
       return;
     }
@@ -17,12 +17,12 @@ export default function AddRecipeForm() {
     console.log({
       title,
       ingredients: ingredients.split(","),
-      instructions,
+      steps, 
     });
 
     setTitle("");
     setIngredients("");
-    setInstructions("");
+    setSteps("");
     setError("");
   };
 
@@ -45,9 +45,9 @@ export default function AddRecipeForm() {
           className="w-full border border-gray-300 rounded p-2"
         />
         <textarea
-          placeholder="Preparation Steps"
-          value={instructions}
-          onChange={(e) => setInstructions(e.target.value)}
+          placeholder="Preparation Steps" 
+          value={steps}
+          onChange={(e) => setSteps(e.target.value)}
           className="w-full border border-gray-300 rounded p-2"
         />
         <button
