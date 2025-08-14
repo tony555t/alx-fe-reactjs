@@ -23,7 +23,7 @@ export default function HomePage() {
               <h2 className="text-xl font-semibold">{recipe.title}</h2>
               <p className="text-gray-600 mt-2">{recipe.summary}</p>
               
-             
+              
               <Link
                 to={`/recipe/${recipe.id}`}
                 className="inline-block mt-4 text-blue-500 hover:underline"
