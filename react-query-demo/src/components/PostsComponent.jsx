@@ -1,4 +1,3 @@
-// src/components/PostsComponent.jsx
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
@@ -14,14 +13,15 @@ const PostsComponent = () => {
   const {
     data: posts,
     isLoading,
+    isError,
     error,
     refetch,
     isRefetching
   } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts,
-    staleTime: 5 * 60 * 1000, 
-    cacheTime: 10 * 60 * 1000,
+    staleTime: 5 * 60 * 1000,
+    cacheTime: 10 * 60 * 1000, 
   });
 
   if (isLoading) {
@@ -33,7 +33,7 @@ const PostsComponent = () => {
     );
   }
 
-  if (error) {
+  if (isError) {
     return (
       <div>
         <h2>Posts</h2>
