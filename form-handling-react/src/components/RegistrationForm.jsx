@@ -1,4 +1,4 @@
-// src/components/RegistrationForm.jsx
+
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
@@ -17,15 +17,15 @@ const RegistrationForm = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.username.trim()) {
+    if (!username) {
       newErrors.username = 'Username is required';
     }
 
-    if (!formData.email.trim()) {
+    if (!email) {
       newErrors.email = 'Email is required';
     }
 
-    if (!formData.password) {
+    if (!password) {
       newErrors.password = 'Password is required';
     }
 
