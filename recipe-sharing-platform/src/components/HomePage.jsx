@@ -6,7 +6,7 @@ export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // Simulating data fetch
+    
     setRecipes(recipesData);
   }, []);
 
@@ -23,6 +23,7 @@ export default function HomePage() {
       <div className="p-4">
         <h2 className="text-xl font-semibold">{recipe.title}</h2>
         <p className="text-gray-600 mt-2">{recipe.summary}</p>
+        
         <Link
           to={`/recipe/${recipe.id}`}
           className="inline-block mt-4 text-blue-500 hover:underline"
@@ -33,6 +34,6 @@ export default function HomePage() {
     </div>
   ))}
 </div>
-    </div>
+</div>
   );
 }
