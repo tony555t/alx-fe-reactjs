@@ -1,5 +1,6 @@
 
 import RegistrationForm from "./components/RegistrationForm";
+import ControlledForm from "./ControlledForm";
 
 function App(){
   return(
@@ -7,6 +8,7 @@ function App(){
       <h1><h1>Controlled Component Form</h1>
 </h1>
 <RegistrationForm/>
+<ControlledForm/>
     </div>
   )
 }
