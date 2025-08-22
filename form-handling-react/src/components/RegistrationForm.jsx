@@ -1,4 +1,4 @@
-// src/components/RegistrationForm.jsx
+
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
@@ -45,12 +45,10 @@ const RegistrationForm = () => {
       return;
     }
 
-    // Reset errors and simulate successful submission
     setErrors({});
     alert('Registration successful!');
     console.log('Form submitted:', formData);
     
-    // Reset form
     setFormData({
       username: '',
       email: '',
