@@ -1,16 +1,27 @@
+// src/App.jsx
+import React, { useState } from 'react';
+import RegistrationForm from './components/RegistrationForm';
+import FormikForm from './components/FormikForm';
 
-import RegistrationForm from "./components/RegistrationForm";
-import ControlledForm from "./ControlledForm";
+function App() {
+  const [currentForm, setCurrentForm] = useState('controlled');
 
-function App(){
-  return(
+  return (
     <div>
-      <h1><h1>Controlled Component Form</h1>
-</h1>
-<RegistrationForm/>
-<ControlledForm/>
+      <h1>Form Handling in React</h1>
+      
+      <div>
+        <button onClick={() => setCurrentForm('controlled')}>
+          Controlled Components
+        </button>
+        <button onClick={() => setCurrentForm('formik')}>
+          Formik
+        </button>
+      </div>
+
+      {currentForm === 'controlled' ? <RegistrationForm /> : <FormikForm />}
     </div>
-  )
+  );
 }
 
 export default App;
