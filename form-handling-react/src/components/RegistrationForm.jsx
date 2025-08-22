@@ -1,21 +1,17 @@
-
+// src/components/RegistrationForm.jsx
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
-
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    if (name === 'username') setUsername(value);
+    if (name === 'email') setEmail(value);
+    if (name === 'password') setPassword(value);
   };
 
   const validateForm = () => {
@@ -45,10 +41,12 @@ const RegistrationForm = () => {
       return;
     }
 
+    // Reset errors and simulate successful submission
     setErrors({});
     alert('Registration successful!');
     console.log('Form submitted:', formData);
     
+    // Reset form
     setFormData({
       username: '',
       email: '',
@@ -66,7 +64,7 @@ const RegistrationForm = () => {
           <input
             type="text"
             name="username"
-            value={formData.username}
+            value={username}
             onChange={handleChange}
           />
           {errors.username && <p style={{color: 'red'}}>{errors.username}</p>}
@@ -77,7 +75,7 @@ const RegistrationForm = () => {
           <input
             type="email"
             name="email"
-            value={formData.email}
+            value={email}
             onChange={handleChange}
           />
           {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}
@@ -88,7 +86,7 @@ const RegistrationForm = () => {
           <input
             type="password"
             name="password"
-            value={formData.password}
+            value={password}
             onChange={handleChange}
           />
           {errors.password && <p style={{color: 'red'}}>{errors.password}</p>}
